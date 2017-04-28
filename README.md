@@ -8,3 +8,9 @@ Bygga ett system som fungerar lite som Github issue.
 - Skapa problem under ett projekt
 - Kommentera på problem
 - Stänga problem
+
+
+### Tänk på
+- Nesting
+- mysqli_real_escape_string
+- SQL är snabbare än PHP
