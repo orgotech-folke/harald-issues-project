@@ -6,17 +6,6 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="issue">
-                    <table cellspacing = "5">
-                        <tr>
-                            <td class="state"><div class="open"></div></td>
-                            <td>projectname</td>
-                            <td>problemname</td>
-                            <td>Short description</td>
-                            <td><a href="problemsite.php">Läs mer</a></td>
-                        </tr>
-                    </table>
-                </div>
             <div class="inlagg">
                 <div class="header">
                     <h1>Titel</h1>
