@@ -31,8 +31,8 @@ if($row->ID < 1){
     <body>
         <div class="wrapper">
             <h1><?php echo "Välkommen ". $_SESSION['name'] . "<a href='utloggning.php'>Logga ut</a>";?></h1>
-            <h1>Dina problem</h1>
-            <a href="projektskapare.php">Skapa projekt</a>
+            <h1>Dina projekt</h1>
+            <?php include 'inputs/projektform.php';?>
             <?php
             $max = mysqli_query($conn, "SELECT MAX(id) as MAX FROM projects");
             $row = mysqli_fetch_object($max);
@@ -41,17 +41,14 @@ if($row->ID < 1){
             for($i = $max; $i > 0; $i--)
             {
                 $counter++;
-                $result = mysqli_query($conn, "SELECT * FROM issues WHERE id = $i AND NAME = '".$_SESSION["name"]."'");
+                $result = mysqli_query($conn, "SELECT * FROM issues WHERE id = $i");
                 while($row = mysqli_fetch_object($result))
                 {
-                    echo "project".$counter;
                     $problem = $row->PROBLEM;
                     $projectname = $row->PROJECTNAME;
                     $resulta = mysqli_query($conn, "SELECT CODE FROM projects WHERE PROJECTNAME = '".$projectname."'");
-                    while($rowa = mysqli_fetch_object($resulta))
-                    {
-                        $htmlcode = htmlspecialchars($rowa->CODE);
-                    }
+                    $rowa = mysqli_fetch_object($resulta);
+                    $htmlcode = htmlspecialchars($rowa->CODE);
                     echo "<div class='issue'><table cellspacing = '5'>
                     <tr>
                     <td class='state'><div class='open'></div></td>
@@ -60,8 +57,8 @@ if($row->ID < 1){
                     <td>".$row->PROBLEM."</td>
                     <td>
                     <form action='problemsite.php' method='post'>
-                    <input type='text' name='problem".$counter."' value='".$problem."'>
-                    <input type='text' name='project".$counter."' value='".$projectname."'>
+                    <input type='hidden' name='problem".$counter."' value='".$problem."'>
+                    <input type='hidden' name='project".$counter."' value='".$projectname."'>
                     <input type='submit'value='Läs mer'>
                     </td></tr></table></div>
                     <div class='inlagg'>

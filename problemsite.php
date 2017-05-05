@@ -18,7 +18,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             <div class="inlagg">
                 <div class="header">
                     <?php
-                    ###Kollar vilket inlägg som användaren tryckte på läs mer
+                    ###Kollar vilket inlÃ¤gg som anvÃ¤ndaren tryckte pÃ¥ lÃ¤s mer
                     $max = mysqli_query($conn, "SELECT MAX(id) as MAX FROM projects");
                     $row = mysqli_fetch_object($max);
                     $max = $row->MAX;
@@ -55,6 +55,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                 };
                 echo "<div class='inlagg'><div class='header'><h1>".$row->PROJECTNAME."</h1><div class='content'><pre>$htmlcode</pre></div></div></div>";
                 ?>
+                            <?php include 'inputs/problemform.php';?>
             </div>
         </div>
     </body>
