@@ -1,8 +1,7 @@
 <?php 
-echo "<form action ='inputs/projektskapare.php' method='post' style='float:left;' class='projectcreator'>
-Namn:<input type='text' name='name' value='".$_SESSION['name']."'readonly><br>
-Projektnamn:<input type='text' name='projectname'><br>
-Kod:<textarea name='code'></textarea><br>
-<input type='submit' value='skapa projekt'>    
+echo "<form action ='inputs/projektskapare.php' method='post' class='projectcreator'><input type='hidden' name='name' value='".$_SESSION['name']."'>
+<h3>Projektnamn:</h3><input type='text' name='projectname'><br><br>
+<h3>Kod:</h3><textarea name='code'></textarea><br><br><br>
+<input type='submit' class='submit' value='skapa projekt'>    
 </form>";
 ?>

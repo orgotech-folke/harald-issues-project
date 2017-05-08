@@ -13,12 +13,12 @@
     }
     if(isset($_POST['comment']))
     {
-        $date = date("l jS F Y h:i:s");
         $name = mysql_real_escape_string($_POST['name']);
         $comment = mysql_real_escape_string($_POST['comment']);
-        mysqli_query($conn, "INSERT INTO comments (NAME, TEXT, DATETIME) VALUES ('$name','$comment','$date')");
-        mysql_close($conn);
-        header("Location: Post.php");
+        $issue = mysql_real_escape_string($_POST['issue']);
+        mysqli_query($conn, "INSERT INTO comments (ISSUE, NAME, COMMENT) VALUES ('".$issue."','".$name."','".$comment."')");
+        mysqli_close($conn);
+        header("Location: problemsite.php");
     }
     else
     {

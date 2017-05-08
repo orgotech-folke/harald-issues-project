@@ -1,79 +1,97 @@
 *{
     margin:0;
     padding:0;
-    transition: all 0.6s;
+    transition:all 0.3s;
+}
+body{
+    background-image:url("../bilder/background.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .wrapper{
-    width:60%;
+    width:80%;
     margin:0 auto;
+    font-size:1vw;
+    color:white;
     text-align: center;
 }
-.issue{
-    width:100%;
+h1{
+    margin-top:10%;
+    font-size:4vw;
 }
-pre{
-    text-align: left;
+a, .submit{
+    text-decoration: none;
+    background-color:rgba(189,195,199,1);
+    color:white;
+    font-weight: bold;
 }
-.issue table{
-    width:100%;
-    margin:0 auto;
-    background-color:white;
-    border:1px solid black;
-    margin-bottom:10px;
-}
-.issue table td{
-    border:1px solid black;
-    width:25%;
-    height:40px;
-    text-align: center;
-}
-td a{
-    width:100%;
-    height:100%;
-    padding: 12px;
-    padding-left:51px;
-    padding-right:51px;
-    background:none;
+.submit{
     border:none;
+    padding:5px;
 }
-td a:hover{
-    background-color:grey;
+.submit:hover{
     cursor:pointer;
 }
-table tr .state{
-    width:5%;
-    height:20px;
+.header{
+    width:50%;
+    margin:0 auto;
+    background-color:rgba(189,195,199,0.2);
 }
-.state div{
+tr{
+    background-color:rgba(189,195,199,0.7);
+}
+tr:hover, .header:hover, .commentfield:hover{
+    background-color:rgba(189,195,199,0.5);
+}
+.content:hover{
+    background-color:rgba(189,195,199,0.8);
+}
+table{
+    margin-top:100px;
+    text-align: center;
     width:100%;
-    height:40px;
+}
+table td{
+    width:20%;
+    padding:10px;
+}
+.state{
+    width:4%;
 }
 .open{
+    height:30px;
+    width:100%;
+    margin:0 auto;
     background-color:green;
 }
-.closed{
-    background-color:red;
-}
-.inlagg{
-    width:100%;
-    border:5px solid black;
-    background-color:white;
+.content, .commentfield{
     margin:0 auto;
+    margin-top:100px;
+    text-align: center;
+    width:80%;
+    border:1px solid rgba(189,195,199,1);
+    background-color:rgba(189,195,199,0.3);
 }
 .content{
-    margin:0 auto;
-    overflow:scroll;
-    height:300px;
-    width:100%;
+    height:500px;
 }
 .content pre{
-    float:left;
-}
-.commentfield{
     width:100%;
-    height:5%;
-    border: 3px solid grey;
+    height:100%;
+    float:left;
+    text-align: left;
+    overflow:scroll;
 }
-.commentfield button{
+.comment{
+    margin-top:50px;
+    padding-bottom:20px;
+    background-color:rgba(189,195,199,0.6);
+    text-align: left;
+}
+.projectcreator input, .projectcreator textarea{
     float:right;
+}
+.projectcreator h3{
+    text-align: right;
 }
