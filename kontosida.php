@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 
 if(!(isset($_SESSION['name'])) || !(isset($_SESSION['password'])))
@@ -8,12 +8,14 @@ if(!(isset($_SESSION['name'])) || !(isset($_SESSION['password'])))
     $_SESSION['password'] = null;
     header("Location: index.php");
 }
-if(isset($_SESSION['project']) || isset($_SESSION['problem']) || isset($_SESSION['formnr']) || isset($_SESSION['getproblem']))
+if(isset($_SESSION['project']) || isset($_SESSION['problem']) || isset($_SESSION['formnr']) || isset($_SESSION['getproblem'])|| isset($_SESSION['problemproject']) ||isset($_SESSION['tempproject']))
 {
     $_SESSION['project'] = null;
     $_SESSION['problem'] = null;
     $_SESSION['formnr'] = null;
     $_SESSION['getproblem'] = null;
+    $_SESSION['problemproject'] = null;
+    $_SESSION['tempproject'] = null;
 }
 $servername = "localhost";
 $username = "root";
@@ -42,11 +44,11 @@ if(isset($_POST['name']) && isset($_POST['password']))
         <link href="styles/css.css" rel="stylesheet">
     </head>
     <body>
+        <h2><a href='utloggning.php'>Logga ut</a></h2>
         <div class="wrapper">
             <div class="header">
                 <h1>Orgotech</h1>
-                <h2><a href='utloggning.php'>Logga ut</a></h2>
-                <h2>Tillgängliga problem</h2>
+                <h2>Tillgängliga projekt</h2>
             </div>
             <?php
             include 'inputs/projektform.php';
@@ -57,21 +59,17 @@ if(isset($_POST['name']) && isset($_POST['password']))
             echo "<table cellspacing = '0'>";
             for($i = $max; $i > 0; $i--)
             {
-                $result = mysqli_query($conn, "SELECT * FROM issues WHERE id = $i");
+                $result = mysqli_query($conn, "SELECT * FROM projects WHERE id = $i");
                 while($row = mysqli_fetch_object($result))
                 {   
                     $counter++;
-                    $problem = $row->PROBLEM;
                     $projectname = $row->PROJECTNAME;
                     echo "<tr>
-                    <td class='state'><div class='open'></div></td>
-                    <td>".$row->NAME."</td>
                     <td>".$row->PROJECTNAME."</td>
-                    <td>".$row->PROBLEM."</td>
+                    <td>".$row->NAME."</td>                
                     <td>
-                    <form action='problemsite.php' method='get'>
-                    <input type='hidden' name='formnr' value='$counter'>
-                    <input type='hidden' name='problem".$counter."' value='".$problem."'>
+                    <form action='projektsida.php' method='get'>
+                    <input type='hidden' name='formnummer' value='$counter'>
                     <input type='hidden' name='project".$counter."' value='".$projectname."'>
                     <input type='submit' class='submit' value='Läs mer'></form>
                     </td></tr>";

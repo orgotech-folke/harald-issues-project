@@ -8,8 +8,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if(isset($_POST['name']) && isset($_POST['projectname']) && isset($_POST['code']))
 {
+    $_POST['code'] = str_replace("'"," ",$_POST['code']);
     $_POST['name'] = mysqli_real_escape_string($conn, $_POST['name']);
-    $checker = mysqli_query($conn);
     if (!mysqli_query($conn,"INSERT INTO `projects`(`PROJECTNAME`, `NAME`, `CODE`) VALUES ('".$_POST['projectname']."','".$_POST['name']."','".$_POST['code']."')"))
     {
         echo("Error description: " . mysqli_error($conn));

@@ -1,7 +1,6 @@
 *{
     margin:0;
     padding:0;
-    transition:all 0.3s;
 }
 body{
     background-image:url("../bilder/background.jpg");
@@ -21,12 +20,14 @@ h1{
     font-size:4vw;
 }
 a, .submit{
+    transition:all 0.3s;
     text-decoration: none;
-    background-color:rgba(189,195,199,1);
+    background-color:rgba(189,195,199,0.8);
     color:white;
     font-weight: bold;
 }
 .submit{
+    transition:all 0.3s;
     border:none;
     padding:5px;
 }
@@ -34,6 +35,7 @@ a, .submit{
     cursor:pointer;
 }
 .header{
+    transition:all 0.3s;
     width:50%;
     margin:0 auto;
     background-color:rgba(189,195,199,0.2);
@@ -48,9 +50,13 @@ tr:hover, .header:hover, .commentfield:hover{
     background-color:rgba(189,195,199,0.8);
 }
 table{
-    margin-top:100px;
+    transition:all 0.3s;
+    margin-top:50px;
     text-align: center;
     width:100%;
+}
+tr{
+    transition:all 0.3s;
 }
 table td{
     width:20%;
@@ -65,11 +71,18 @@ table td{
     margin:0 auto;
     background-color:green;
 }
+.closed{
+    height:30px;
+    width:100%;
+    margin:0 auto;
+    background-color:red;
+}
 .content, .commentfield{
+    transition:all 0.3s;
     margin:0 auto;
     margin-top:100px;
     text-align: center;
-    width:80%;
+    width:100%;
     border:1px solid rgba(189,195,199,1);
     background-color:rgba(189,195,199,0.3);
 }
@@ -89,9 +102,23 @@ table td{
     background-color:rgba(189,195,199,0.6);
     text-align: left;
 }
+.commenttitle{
+    font-size: 2vw;
+}
 .projectcreator input, .projectcreator textarea{
     float:right;
 }
 .projectcreator h3{
     text-align: right;
+}
+.projectcreator h2{
+    margin-top:25px;
+}
+#code{
+    width:100%;
+    height:100%;
+    background-color:rgba(189,195,199,0.3);
+}
+#rslt{
+    display:none;
 }

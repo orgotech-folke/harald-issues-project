@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 ###Kollar om allting är som det ska på hemsidan
 if(isset($_SESSION['message']) && $_SESSION['message'] != null){

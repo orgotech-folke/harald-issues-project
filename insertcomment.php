@@ -16,7 +16,8 @@
         $name = mysql_real_escape_string($_POST['name']);
         $comment = mysql_real_escape_string($_POST['comment']);
         $issue = mysql_real_escape_string($_POST['issue']);
-        mysqli_query($conn, "INSERT INTO comments (ISSUE, NAME, COMMENT) VALUES ('".$issue."','".$name."','".$comment."')");
+        $project = mysql_real_escape_string($_POST['project']);
+        mysqli_query($conn, "INSERT INTO comments (ISSUE, NAME, COMMENT,PROJECTNAME) VALUES ('".$issue."','".$name."','".$comment."','".$project."')");
         mysqli_close($conn);
         header("Location: problemsite.php");
     }

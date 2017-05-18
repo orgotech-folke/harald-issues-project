@@ -13,7 +13,7 @@ if(isset($_POST['name']) && isset($_POST['projectname']) && isset($_POST['proble
     {
         echo("Error description: " . mysqli_error($conn));
     }else{
-        header("Location: ../problemsite.php");
+        header("Location: ../problemsida.php");
     }
 }
 else
